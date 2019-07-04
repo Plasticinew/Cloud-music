@@ -1,0 +1,438 @@
+﻿{% extends "template.html" %}
+{% block title %}
+<strong class="am-text-primary am-text-lg">表单</strong> /
+<small>form</small>
+{% endblock %}
+
+{% block body %}
+<div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        {%if type==0 %}
+        <li class="am-active"><a href="#tab1">修改储蓄账户</a></li>
+        {%endif%}
+        {%if type==1 %}
+        <li class="am-active"><a href="#tab2">修改员工</a></li>
+        {%endif%}
+        {%if type==2 %}
+        <li class="am-active"><a href="#tab3">修改支行</a></li>
+        {%endif%}
+        {%if type==3 %}
+        <li class="am-active"><a href="#tab4">修改客户</a></li>
+        {%endif%}
+        {%if type==4 %}
+        <li class="am-active"><a href="#tab5">修改支票账户</a></li>
+        {%endif%}
+        {%if type==5 %}
+        <li class="am-active"><a href="#tab6">新建贷款</a></li>
+        {%endif%}
+        {%if type==6 %}
+        <li class="am-active"><a href="#tab6">新建付款</a></li>
+        {%endif%}
+    </ul>
+
+    <div class="am-tabs-bd">
+        {%if type==0 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+                {% if show==1%}
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="accountid">账户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="accountid" id="accountid">
+                    </div>
+                </div>
+                {%endif%}
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankname">所在支行</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankname" id="bankname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="clientid">客户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="clientid" id="clientid">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="balance">余额</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="balance" id="balance">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="dateopening">修改日期</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="date" class="am-input-sm" name="dateopening" id="dateopening">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="rate">利率</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="rate" id="rate">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="moneytype">币种</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="moneytype" id="moneytype">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        {%endif%}
+        {%if type==1 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="staffid">员工ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="staffid" id="staffid">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankname">所在支行</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankname" id="bankname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="staffname">姓名</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="staffname" id="staffname">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="phone">手机号</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="phone" id="phone">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="address">地址</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="address" id="address">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="datestartworking">开始工作日期</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="date" class="am-input-sm" name="datestartworking" id="datestartworking">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+        {%if type==2 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankname">支行名称</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankname" id="bankname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankcity">所在城市</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankcity" id="bankcity">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="property">资产</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="property" id="property">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+        {%if type==3 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="clientid">客户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="clientid" id="clientid">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="clientname">客户姓名</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="clientname" id="clientname">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="linkid">联系人ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="linkid" id="linkid">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="linkname">联系人名称</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="linkname" id="linkname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="phone">电话</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="phone" id="phone">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="address">地址</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="address" id="address">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+        {%if type==4 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+                {% if show==1%}
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="accountid">账户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="accountid" id="accountid">
+                    </div>
+                </div>
+                {%endif%}
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankname">所在支行</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankname" id="bankname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="clientid">客户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="clientid" id="clientid">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="balance">余额</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="balance" id="balance">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="dateopening">修改日期</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="date" class="am-input-sm" name="dateopening" id="dateopening">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="overdraft">透支额</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="overdraft" id="overdraft">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+        {%if type==5 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post" id="loan">
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="loanid">贷款ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="loanid" id="loanid">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="bankname">所在支行</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="bankname" id="bankname">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="clientid">客户ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <textarea class="" rows="5" placeholder="输入全部客户ID，以“;”隔开" name="clientid" id="clientid"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="amount">金额</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="amount" id="amount">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+        {%if type==6 %}
+        <div class="am-tab-panel am-active">
+            <form class="am-form" method="post">
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="payid">付款ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="payid" id="payid">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="loanid">贷款ID</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="loanid" id="loanid">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="date">日期</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="date" id="date">
+
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        <label for="amount">金额</label>
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="text" class="am-input-sm" name="amount" id="amount">
+                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end">
+                        <input type="submit" value="提交修改" class="am-btn am-btn-primary am-btn-xs">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        {%endif%}
+    </div>
+
+</div>
+
+{% endblock %}
