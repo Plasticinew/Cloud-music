@@ -1,38 +1,22 @@
 ﻿{% extends "template.html" %}
 {% block title %}
-<h1><strong>&ensp;&ensp;歌单列表</strong></h1>
-<br>
+<strong class="am-text-primary am-text-lg">客户详细资料</strong> /
+<small>detail</small>
 {% endblock %}
 
-{% block table %}
-<table class="layui-table" lay-skin="line">
-    <colgroup>
-        <col width="10%">
-        <col width="20%">
-        <col width="10%">
-        <col>
-    </colgroup>
-    <thead>
-    <tr>
-        <th>序号</th>
-        <th>歌单名</th>
-        <th>创建人</th>
-        <th>操作</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for songlist in songlistlist %}
-    <tr>
-        <td>{{loop.index}}</td>
-        <td>{{songlist[0]}}</td>
-        <td>{{songlist[1]}}</td>
-        <td>
-            <button href="" class="layui-btn">选择</button>
+{% block body %}
+<div class="am-u-sm-12 am-u-sm-centered">
+    <h2>负责人： 张三</h2>
+    <p>员工ID：&nbsp;&nbsp;&nbsp;&nbsp;10032464</p>
+</div>
+<hr>
+<div class="am-u-sm-12 am-u-sm-centered">
+    <h2>联系人{{name}}详细资料</h2>
+    <p>手机：&nbsp;&nbsp;&nbsp;&nbsp;13849325433</p>
+    <p>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;832747853@qq.com</p>
+    <p>关系：&nbsp;&nbsp;&nbsp;&nbsp;同事</p>
 
-        </td>
-    </tr>
-    {%endfor%}
-    </tbody>
-</table>
+</div>
+
 
 {% endblock %}
