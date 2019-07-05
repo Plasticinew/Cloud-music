@@ -16,12 +16,89 @@ def bank(page=None):
     if not page:
         page = 0
 
+
     cont = [['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['ab', 'bbb', '1000'],
+            ['ac', 'ccc', '10000'],
+            ['ba', 'aaa', '100'],
+            ['cb', 'bbb', '1000'],
+            ['dc', 'ccc', '10000'],
+            ['ea', 'aaa', '100'],
+            ['fb', 'bbb', '1000'],
+            ['gc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['refer', 'ccc', '10000'],
+            ['efr', 'aaa', '100'],
+            ['gerg', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['ergerf', 'aaa', '100'],
+            ['ferf', 'bbb', '1000'],
+            ['eegerg', 'ccc', '10000'],
+            ['athyh', 'aaa', '100'],
+            ['bbrbb', 'bbb', '1000'],
+            ['cfrbfc', 'ccc', '10000'],
+            ['agrgra', 'aaa', '100'],
+            ['bfgrb', 'bbb', '1000'],
+            ['crtc', 'ccc', '10000'],
+            ['afrga', 'aaa', '100'],
+            ['begeb', 'bbb', '1000'],
+            ['ccfd', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
+            ['bb', 'bbb', '1000'],
+            ['cc', 'ccc', '10000'],
+            ['aa', 'aaa', '100'],
             ['bb', 'bbb', '1000'],
             ['cc', 'ccc', '10000']
             ]
 
-    return render_template("index.html", owned=1, songlist=cont)
+    if request.method == 'POST':
+        name = request.form['name']
+        city = request.form['city']
+        minp = request.form['minp']
+        maxp = request.form['maxp']
+        waytosort = request.form['way']
+        cont = [[name, city, waytosort]]
+
+    return render_template("index.html", page=page, cont=cont, tot=len(cont))
 
 
 @bp.route("/staff<int:page>", methods=('GET', 'POST'))
