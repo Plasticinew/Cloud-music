@@ -1,238 +1,47 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>音乐播放器DEMO</title>
-    <meta name="Keywords" content="音乐播放器"/>
-    <meta name="Description"
-          content="底部音乐播放器"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audio.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layui.css') }}">
-</head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header layui-bg-black">
-        <div class="layui-logo"><strong>DD 音乐播放器</strong></div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <div class="layui-layout-left">
+﻿{% extends "template.html" %}
+{% block title %}
+<h1><strong>&ensp;&ensp;XX歌单</strong></h1>
+<br>
+<p>创建人：{{cname}}&ensp;&ensp;&ensp;&ensp;创建日期：{{cdate}}</p>
+{%endblock%}
+{% block table %}
 
-            <form method="post">
-                <div class="layui-row">
-                    <div class="layui-col-md9">
-                        <input type="text" name="keywords" placeholder="请输入关键字"
-                               autocomplete="off" class="layui-input">
-                    </div>
-                    <div class="layui-col-md3 layui-layout-right">
-                        <input type="submit" value="搜索" class="layui-btn layui-icon-search">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="{{ url_for('static', filename='4168f964f898c5d6d03fec74456a4d907ee90d27.jpg@1280w_1280h.webp') }}"
-                         class="layui-nav-img">
-                    DD
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">退出登录</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">设置</a></li>
-        </ul>
-    </div>
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">热曲榜单</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">流行</a></dd>
-                        <dd><a href="javascript:;">古典</a></dd>
-                        <dd><a href="">ACG</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">我的歌单</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">喜欢歌曲</a></dd>
-                        <dd><a href="">歌单1</a></dd>
-                        <dd><a href="">歌单2</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">每日推荐</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="layui-body layui-bg-gray">
-        <div class="layui-layer-title layui-bg-gray">
-            XX歌单
-        </div>
-        <hr>
-        <br>
-        <div>
-            <table class="layui-table" lay-skin="line">
-                <colgroup>
-                    <col width="100">
-                    <col width="200">
-                    <col width="100">
-                    <col>
-                </colgroup>
-                <thead>
-                <tr>
-                    <th>序号</th>
-                    <th>歌名</th>
-                    <th>歌手</th>
-                    <th>专辑</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>歌曲1</td>
-                    <td>歌手1</td>
-                    <td>专辑1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>歌曲2</td>
-                    <td>歌手2</td>
-                    <td>专辑2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>歌曲3</td>
-                    <td>歌手3</td>
-                    <td>专辑3</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    </table>
-    <div class="audio-box">
-        <div class="audio-container">
-            <div class="audio-view">
-                <div class="audio-btn-left">
-                    <div class="audio-select-left">
-                        <div class="audio-prev"></div>
-                        <div class="audio-play"></div>
-                        <div class="audio-next"></div>
-                    </div>
-                </div>
-                <div class="audio-body">
-                    <div class="audio-backs">
-                        <div class="audio-this-time">00:00</div>
-                        <div class="audio-count-time">00:00</div>
-                        <div class="audio-setbacks">
-                            <i class="audio-this-setbacks">
-                                <span class="audio-backs-btn"></span>
-                            </i>
-                            <span class="audio-cache-setbacks">
-							</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="audio-btn">
-                    <div class="audio-select">
-                        <div class="audio-menu"></div>
-                        <div class="audio-volume"></div>
-                    </div>
-                    <div class="audio-set-volume">
-                        <div class="volume-box">
-                            <i><span></span></i>
-                        </div>
-                    </div>
-                    <div class="audio-list layui-bg-gray">
-                        <div class="audio-list-head">
-                            <p>当前播放列表</p>
-                            <span class="menu-close">关闭</span>
-                        </div>
-                        <ul class="audio-inline">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--<div class="audio-title">未知歌曲</div>-->
-
-
-</body>
-
-<script type="text/javascript" src="{{ url_for('static', filename='jquery-3.4.1.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/audio.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='layui.all.js') }}"></script>
-<script type="text/javascript">
-    $(function () {
-
-        var song = [
-            {
-                'cover': 'images/cover2.jpg',
-                'src': 'http://clip.tom.com/yule/shiting/2011/liyugangxgfjj.mp3',
-                'title': 'Memories'
-            },
-            {
-                'cover': 'images/cover.png',
-                'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/5/audios/Soaring%20Spirit.mp3',
-                'title': 'number one2'
-            },
-            {
-                'cover': 'images/cover1.jpg',
-                'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/5/audios/Inspiring%20Ideas%20into%20Motion.mp3',
-                'title': '大橋のぞみ - 黒ネコのタンゴ'
-            },
-            {
-                'cover': 'images/cover3.jpg',
-                'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/5/audios/Photos%20and%20Memories.mp3',
-                'title': '黒うさP,初音ミク - 千本桜'
-            },
-            {
-                'cover': 'images/cover4.jpg',
-                'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/5/audios/Soaring%20Spirit.mp3',
-                'title': '极乐净土'
-            }
-        ];
-
-        var audioFn = audioPlay({
-            song: song,
-            autoPlay: false  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
-        });
-
-        /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
-        audioFn.newSong({
-            'cover': 'images/cover5.jpg',
-            'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/5/audios/Soaring%20Spirit.mp3',
-            'title': 'B.A.A.B'
-        }, false);
-
-        /* 暂停播放 */
-        //audioFn.stopAudio();
-
-        /* 开启播放 */
-        //audioFn.playAudio();
-
-        /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
-        //audioFn.selectMenu(3,true);
-
-        /* 查看歌单中的曲目 */
-        //console.log(audioFn.song);
-
-        /* 当前播放曲目的对象 */
-        //console.log(audioFn.audio);
-    });
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ecbff70bd46d40393c105bbc42edfcad";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-</html>
+<table class="layui-table" lay-skin="line">
+    <colgroup>
+        <col width="10%">
+        <col width="20%">
+        <col width="10%">
+        <col width="20%">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>歌名</th>
+        <th>歌手</th>
+        <th>专辑</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for song in songlist %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{song[0]}}</td>
+        <td>{{song[0]}}</td>
+        <td>{{song[2]}}</td>
+        <td>
+            {%if owned==1%}
+            <button href="" class="layui-btn">播放</button>
+            <button href="" class="layui-btn">删除</button>
+            {%else%}
+            <a href="" class="layui-btn">收藏</a>
+            <a href="" class="layui-btn">分享</a>
+            <a href="" class="layui-btn">新建歌单</a>
+            {%endif%}
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock %}
