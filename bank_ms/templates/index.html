@@ -32,10 +32,13 @@
         <td>{{song[2]}}</td>
         <td>
             {%if owned==1%}
-            <button href="" class="layui-btn">播放</button>
-            <button href="" class="layui-btn">删除</button>
+            <a href="" class="layui-btn">播放</a>
+            <a href="" class="layui-btn">删除</a>
+            <a href="{{url_for('bank.link',index=loop.index)}}" class="layui-btn">收藏</a>
+            <a href="{{url_for('bank.detail',index=loop.index)}}" class="layui-btn">详情</a>
             {%else%}
-            <a href="" class="layui-btn">收藏</a>
+            <a href="{{url_for('bank.link',index=loop.index)}}" class="layui-btn">收藏</a>
+             <a href="{{url_for('bank.detail',index=loop.index)}}" class="layui-btn">详情</a>
             <a href="" class="layui-btn">分享</a>
             <a href="" class="layui-btn">新建歌单</a>
             {%endif%}
