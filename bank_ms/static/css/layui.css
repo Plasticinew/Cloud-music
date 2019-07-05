@@ -811,6 +811,7 @@ a cite {
 
 .layui-header {
     z-index: 1000;
+    margin-top: -17px;
     height: 60px
 }
 
@@ -870,7 +871,7 @@ a cite {
 
 .layui-layout-admin .layui-main {
     width: auto;
-    margin: 0 15px
+    margin: 0 0
 }
 
 .layui-layout-admin .layui-footer {
@@ -880,7 +881,7 @@ a cite {
     bottom: 0;
     height: 44px;
     line-height: 44px;
-    padding: 0 15px;
+    padding: 0 0;
     background-color: #eee
 }
 
@@ -915,8 +916,8 @@ a cite {
 
 .layui-container {
     position: relative;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0 0;
+    padding: 0 0;
     box-sizing: border-box
 }
 

@@ -55,6 +55,12 @@ ul li{
 .audio-body{
 	padding: 0 10px;
 }
+
+.title{
+	width:400px;
+	overflow: hidden;
+}
+
 .audio-title{
 	font-weight: 400;
 	font-size: 20px;
